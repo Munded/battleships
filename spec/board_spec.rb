@@ -7,5 +7,18 @@ describe Board do
       board.place :boat
       expect(board.show_boats).to eq [:boat]
     end
-  end
+    it 'you can hit a specific boat' do
+      board = Board.new
+      boat = double :boat, grid_number: 'A1'
+      board.place boat
+      board.hit boat
+      expect(board.show_boats).to eq []
+    end
+  #   it 'you can miss a boat' do
+      
+
+  #     expect(subject.hit boat).to eq false
+  # end
 end
+end
+

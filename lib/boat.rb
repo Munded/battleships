@@ -1,16 +1,19 @@
 class Boat
+
   def initialize
     @placement = []
   end
 
-  def placement
-    fail 'Placement Error' if user_input.scan(/[^abc123]/)
-    @placement << user_input
-      end
-end
+  def placement grid_number
+    fail 'Placement Error' unless grid_number =~ /[ABC][123]/
+    @placement << grid_number
+  end
 
-private
+  def size n
+    fail 'Wrong size' if @placement.length > n
+  end
 
-def user_input
-  gets.chomp
+  def boat_length
+    @placement.length
+  end
 end
