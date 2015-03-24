@@ -1,19 +1,20 @@
 class Boat
+  attr_reader :placement
+  attr_reader :hit
+  alias_method :hit?, :hit
 
-  def initialize
+  def initialize grid_number
     @placement = []
-  end
-
-  def placement grid_number
-    fail 'Placement Error' unless grid_number =~ /[ABC][123]/
+    fail 'Placement Error' unless grid_number =~ /[ABCDEF][123456]/
     @placement << grid_number
-  end
-
-  def size n
-    fail 'Wrong size' if @placement.length > n
+    @hit = false
   end
 
   def boat_length
     @placement.length
+  end
+
+  def hit!
+    @hit = true
   end
 end

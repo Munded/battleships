@@ -1,21 +1,27 @@
+require_relative 'boat'
+
 class Board
-  def initialize 
+  attr_reader :boats
+
+  def initialize
     @boats = []
   end
-	def place boat
-    @boats << boat 
-	end
 
-  def show_boats
-    @boats
+  def place boat
+    boats << boat
   end
-  
-  def hit boat
-    @boats.delete(boat)
-  end
-  
-  # def hit boat
-  #   if boats.select { |b| boat -- b }
 
-  # end
+  def hit location
+    if boats.any? { |boat| boat.placement == [location] }
+       boat = boats.select { |b| b.placement == [location] }.sample
+       boat.hit! 
+      return 'Hit'
+    else
+      return 'Miss'
+    end
+  end
+
+  def won?
+    boats.all? { |boats| boats.hit == true }
+  end
 end
