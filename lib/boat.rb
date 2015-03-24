@@ -5,12 +5,13 @@ class Boat
 
   def initialize grid_number
     @placement = []
-    fail 'Placement Error' unless grid_number =~ /[ABCDEF][123456]/
+    gnl = grid_number.length == 2
+    fail 'Placement Error' unless gnl && grid_number =~ /[ABCDEFGHI][123456789]/
     @placement << grid_number
     @hit = false
   end
 
-  def boat_length
+  def number_of_boats
     @placement.length
   end
 

@@ -8,6 +8,7 @@ class Board
   end
 
   def place boat
+    fail 'Space Overlap' if boats.any? { |b| b.placement == boat.placement }
     boats << boat
   end
 

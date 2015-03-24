@@ -8,7 +8,7 @@ describe Boat do
     end
 
     it 'raises error for invalid placement on board' do
-      expect { Boat.new 'G7' }.to raise_error 'Placement Error'
+      expect { Boat.new 'J99' }.to raise_error 'Placement Error'
     end
 
     it 'can be placed on the board' do
