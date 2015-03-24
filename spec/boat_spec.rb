@@ -5,12 +5,10 @@ describe Boat do
     it 'knows its position' do
       boat = Boat.new 'A1'
       expect(boat.placement).to eq ['A1']
-      # allow(subject).to receive(:grid_number).and_return(['A1'])
-      # expect(subject.grid_number).to eq ['A1']
     end
 
     it 'raises error for invalid placement on board' do
-      expect { Boat.new 'D4' }.to raise_error 'Placement Error'
+      expect { Boat.new 'G7' }.to raise_error 'Placement Error'
     end
 
     it 'can be placed on the board' do
@@ -24,7 +22,7 @@ describe Boat do
     end
     it 'a hit boat will change it\'s hit status' do
       boat = Boat.new 'A1'
-      boat.hit! 
+      boat.hit!
       expect(boat).to be_hit
     end
   end

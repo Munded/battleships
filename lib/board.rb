@@ -13,8 +13,8 @@ class Board
 
   def hit location
     if boats.any? { |boat| boat.placement == [location] }
-       boat = boats.select { |b| b.placement == [location] }.sample
-       boat.hit! 
+      boat = boats.select { |b| b.placement == [location] }.sample
+      boat.hit!
       return 'Hit'
     else
       return 'Miss'
